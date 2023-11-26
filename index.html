@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+	table, th, td{
+  border: 2px solid black;
+  border-collapse: collapse;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+td{
+  padding: 15px;
+}
+</style>
+
+</head>
+<body>
+  <table id="table">
+    <tr>
+      <td id="first">Investment Value</td>
+      <td id="second">Date</td>
+    </tr>
+  </table>
+
+
+<script>
+var final = 10;
+var interest = 2;
+
+for(let i =0; i< 365; i++){
+	let a = final * 2 / 100;
+  final = a + final;
+  console.log(final);
+  
+  
+  // to fixed number
+  let q = final.toFixed(0);
+    var row = document.createElement("tr");
+
+    for (var m = 0; m < 1; m++) {
+      var cell1 = document.createElement("td");
+      var cell1Text = document.createTextNode("$" +q);
+      
+      var cell2 = document.createElement("td");
+      
+      if (i < 32){
+      	var cell2Text = document.createTextNode(i + " Dec");
+      }
+      else if (i >= 32 & i < 64){
+      	var cell2Text = document.createTextNode(i - 32 + " Jan");
+      }
+      else if (i >= 64 & i < 96){
+      	var cell2Text = document.createTextNode(i-64 + " Feb");
+      }
+      else if (i >= 96 & i < 128){
+      	var cell2Text = document.createTextNode(i-96 + " Mar");
+      }
+      else if (i >= 128 & i < 160){
+      	var cell2Text = document.createTextNode(i-128 + " Apr");
+      }
+      else if (i >= 160 & i < 192){
+      	var cell2Text = document.createTextNode(i-160 + " May");
+      }
+      else if (i >= 192 & i < 224){
+      	var cell2Text = document.createTextNode(i-192 + " June");
+      }
+      else if (i >= 224 & i < 256){
+      	var cell2Text = document.createTextNode(i-224 + " July");
+      }
+      else if (i >= 256 & i < 288){
+      	var cell2Text = document.createTextNode(i-256 + " Aug");
+      }
+      else if (i >= 288 & i < 320){
+      	var cell2Text = document.createTextNode(i-288 + " Sep");
+      }
+      else if (i >= 320 & i < 352){
+      	var cell2Text = document.createTextNode(i-320 + " Oct");
+      }
+      else {
+      	var cell2Text = document.createTextNode(i-352 + " Nov");
+      }
+
+
+      cell1.appendChild(cell1Text);
+      cell2.appendChild(cell2Text);
+      row.appendChild(cell1);
+      row.appendChild(cell2);
+      $("table").append(row);
+    }
+  
+}
+</script>
+</body>
+</html>
